@@ -22,7 +22,6 @@
 | --------- |
 | 1. Name = "Infinity" |
 | 2. Data Source = "Grafana Labs" |
-| <img src="/Images/30-Grafana-Plugin-Management-Infinity.jpg"> |
 
 
 | CODEBASE:- |
@@ -221,7 +220,7 @@ Push-OutputBinding -Name Response -Value (
 
 | CODEBASE:- |
 | --------- |
-| 1. Grafana Dashboard - "End-User-Devices-Intune-Grafana-Dashboard.JSON" |
+| 2. Grafana Dashboard - "End-User-Devices-Intune-Grafana-Dashboard.JSON" |
 
 
 ```
