@@ -6,7 +6,7 @@
 import {
   to = azurerm_security_center_subscription_pricing.az-mdc-cspm
 
-  id = "/subscriptions/a3390541-963c-4b3a-85d3-66c263f33b39/providers/Microsoft.Security/pricings/CloudPosture"
+  id = "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Security/pricings/CloudPosture"
 }
 
 #############################
@@ -16,7 +16,7 @@ import {
 import {
   to = azurerm_security_center_subscription_pricing.az-mdc-servers
 
-  id = "/subscriptions/a3390541-963c-4b3a-85d3-66c263f33b39/providers/Microsoft.Security/pricings/VirtualMachines"
+  id = "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Security/pricings/VirtualMachines"
 }
 
 #################################################
@@ -26,7 +26,7 @@ import {
 import {
   to = azurerm_security_center_subscription_pricing.az-mdc-appservice-api[0]
 
-  id = "/subscriptions/a3390541-963c-4b3a-85d3-66c263f33b39/providers/Microsoft.Security/pricings/AppServices"
+  id = "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Security/pricings/AppServices"
 }
 
 #################################################
@@ -36,7 +36,7 @@ import {
 import {
   to = azurerm_security_center_subscription_pricing.az-mdc-db[0]
 
-  id = "/subscriptions/a3390541-963c-4b3a-85d3-66c263f33b39/providers/Microsoft.Security/pricings/SqlServers"
+  id = "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Security/pricings/SqlServers"
 }
 
 #################################################
@@ -46,7 +46,7 @@ import {
 import {
   to = azurerm_security_center_subscription_pricing.az-mdc-db[1]
 
-  id = "/subscriptions/a3390541-963c-4b3a-85d3-66c263f33b39/providers/Microsoft.Security/pricings/OpenSourceRelationalDatabases"
+  id = "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Security/pricings/OpenSourceRelationalDatabases"
 }
 
 #################################################
@@ -56,7 +56,7 @@ import {
 import {
   to = azurerm_security_center_subscription_pricing.az-mdc-db[2]
 
-  id = "/subscriptions/a3390541-963c-4b3a-85d3-66c263f33b39/providers/Microsoft.Security/pricings/SqlServerVirtualMachines"
+  id = "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Security/pricings/SqlServerVirtualMachines"
 }
 
 #################################################
@@ -66,7 +66,7 @@ import {
 import {
   to = azurerm_security_center_subscription_pricing.az-mdc-db[3]
 
-  id = "/subscriptions/a3390541-963c-4b3a-85d3-66c263f33b39/providers/Microsoft.Security/pricings/CosmosDbs"
+  id = "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Security/pricings/CosmosDbs"
 }
 
 #################################################
@@ -76,7 +76,7 @@ import {
 import {
   to = azurerm_security_center_subscription_pricing.az-mdc-storage
 
-  id = "/subscriptions/a3390541-963c-4b3a-85d3-66c263f33b39/providers/Microsoft.Security/pricings/StorageAccounts"
+  id = "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Security/pricings/StorageAccounts"
 }
 
 #################################################
@@ -86,7 +86,7 @@ import {
 import {
   to = azurerm_security_center_subscription_pricing.az-mdc-containers
 
-  id = "/subscriptions/a3390541-963c-4b3a-85d3-66c263f33b39/providers/Microsoft.Security/pricings/Containers"
+  id = "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Security/pricings/Containers"
 }
 
 #################################################
@@ -96,7 +96,7 @@ import {
 import {
   to = azurerm_security_center_subscription_pricing.az-mdc-kv
 
-  id = "/subscriptions/a3390541-963c-4b3a-85d3-66c263f33b39/providers/Microsoft.Security/pricings/KeyVaults"
+  id = "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Security/pricings/KeyVaults"
 }
 
 #################################################
@@ -106,7 +106,7 @@ import {
 import {
   to = azurerm_security_center_subscription_pricing.az-mdc-arm
 
-  id = "/subscriptions/a3390541-963c-4b3a-85d3-66c263f33b39/providers/Microsoft.Security/pricings/Arm"
+  id = "/subscriptions/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx/providers/Microsoft.Security/pricings/Arm"
 }
 
 # #################################################
