@@ -1,0 +1,125 @@
+trigger: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  azureServiceConnection: 'BILS-AZ-ENTRA-APP-REG-Prod-DevOps-Svc-Conn'
+  resourceGroupName: 'bil-s_3rd_party_public_services'
+  #appServiceName: 'bilch-ebanking-maintenance'
+  appServiceName: 'bilch-redirect'
+  targetPHPVersion: '8.5'
+
+steps:
+
+- checkout: none
+
+- task: AzureCLI@2
+  displayName: 'Update App Service PHP Stack to 8.5'
+  inputs:
+    azureSubscription: '$(azureServiceConnection)'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+
+      $resourceGroup = "$(resourceGroupName)"
+      $appService    = "$(appServiceName)"
+      $targetVersion = "$(targetPHPVersion)"
+      $targetStack   = "PHP|$targetVersion"
+
+      Write-Host "=========================================="
+      Write-Host "App Service PHP Stack Update"
+      Write-Host "=========================================="
+      Write-Host "Resource Group : $resourceGroup"
+      Write-Host "App Service    : $appService"
+      Write-Host "Target PHP     : $targetVersion"
+      Write-Host "=========================================="
+
+      # -------------------------------
+      # Get Current PHP Stack :-
+      # -------------------------------
+
+      Write-Host ""
+      Write-Host "Checking current PHP stack..."
+
+      $currentStack = az webapp config show --resource-group $resourceGroup --name $appService --query linuxFxVersion --output tsv
+
+      if ($LASTEXITCODE -ne 0) {
+          throw "Unable to retrieve current App Service stack!!!"
+      }
+
+      Write-Host "Current Stack: $currentStack"
+
+      # --------------------------------------------
+      # Check if Already Running Target Version :-
+      # --------------------------------------------
+
+      if ($currentStack -eq $targetStack) {
+
+          Write-Host ""
+          Write-Host "App Service is already running $targetStack."
+          Write-Host "No change required."
+
+          exit 0
+      }
+
+      # ----------------------------------
+      # Validate PHP availability :-
+      # ----------------------------------
+
+      Write-Host ""
+      Write-Host "Checking whether $targetStack is available..."
+
+      $availableRuntimes = az webapp list-runtimes --os linux --query "[?runtime=='PHP' && version=='$targetVersion'].config" --output tsv
+
+      if ($LASTEXITCODE -ne 0) {
+          throw "Unable to retrieve available PHP runtimes."
+      }
+
+      Write-Host "Available Runtime: $availableRuntimes"
+
+      if ($availableRuntimes -ne $targetStack) {
+          throw "$targetStack is Not Currently available as an App Service Linux runtime."
+      }
+
+      Write-Host "$targetStack is available."
+
+      # ---------------------------------------------------------
+      # Update PHP version
+      # ---------------------------------------------------------
+
+      Write-Host ""
+      Write-Host "Updating App Service:"
+      Write-Host "$currentStack --> $targetStack"
+
+      az webapp config set --resource-group $resourceGroup --name $appService --linux-fx-version """$targetStack""" --output none
+
+      if ($LASTEXITCODE -ne 0) {
+          throw "Failed to update App Service PHP Stack."
+      }
+
+      # ---------------------------------------------------------
+      # Verify configuration
+      # ---------------------------------------------------------
+
+      Write-Host ""
+      Write-Host "Verifying PHP stack..."
+
+      $newStack = az webapp config show --resource-group $resourceGroup --name $appService --query linuxFxVersion --output tsv
+
+      if ($LASTEXITCODE -ne 0) {
+          throw "Unable to verify the App Service configuration."
+      }
+
+      Write-Host "Configured Stack: $newStack"
+
+      if ($newStack -ne $targetStack) {
+          throw "Verification failed. Expected $targetStack but received $newStack."
+      }
+
+      Write-Host ""
+      Write-Host "=========================================="
+      Write-Host "SUCCESS"
+      Write-Host "App Service PHP stack successfully updated"
+      Write-Host "$currentStack --> $newStack"
+      Write-Host "=========================================="

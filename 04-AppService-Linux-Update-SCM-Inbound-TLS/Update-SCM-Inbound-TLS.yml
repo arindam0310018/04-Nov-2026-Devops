@@ -1,0 +1,108 @@
+trigger: none
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  azureServiceConnection: 'BILS-AZ-ENTRA-APP-REG-Prod-DevOps-Svc-Conn'
+  resourceGroupName: 'bil-s_3rd_party_public_services'
+  appServiceName: 'bilch-redirect'
+  targetScmTlsVersion: '1.2'
+
+steps:
+
+- checkout: none
+
+- task: AzureCLI@2
+  displayName: 'Update App Service SCM Minimum TLS to 1.2'
+  inputs:
+    azureSubscription: '$(azureServiceConnection)'
+    scriptType: 'ps'
+    scriptLocation: 'inlineScript'
+    inlineScript: |
+
+      $resourceGroup = "$(resourceGroupName)"
+      $appService    = "$(appServiceName)"
+      $targetTls     = "$(targetScmTlsVersion)"
+
+      Write-Host "=========================================="
+      Write-Host "App Service SCM TLS Update"
+      Write-Host "=========================================="
+      Write-Host "Resource Group : $resourceGroup"
+      Write-Host "App Service    : $appService"
+      Write-Host "Target SCM TLS : $targetTls"
+      Write-Host "=========================================="
+
+      # ----------------------------------
+      # Get Current TLS Configuration :-
+      # ----------------------------------
+
+      Write-Host ""
+      Write-Host "Checking current TLS configuration..."
+
+      $currentScmTls = az webapp config show --resource-group $resourceGroup --name $appService --query scmMinTlsVersion --output tsv
+
+      if ($LASTEXITCODE -ne 0) {
+          throw "Unable to retrieve current SCM TLS configuration."
+      }
+
+      $currentMinTls = az webapp config show --resource-group $resourceGroup --name $appService --query minTlsVersion --output tsv
+
+      if ($LASTEXITCODE -ne 0) {
+          throw "Unable to retrieve current Minimum TLS configuration."
+      }
+
+      Write-Host "Minimum Inbound TLS     : $currentMinTls"
+      Write-Host "SCM Minimum Inbound TLS : $currentScmTls"
+
+      # ------------------------------------------------------
+      # Check if SCM Inbound TLS is Already Configured :-
+      # ------------------------------------------------------
+
+      if ($currentScmTls -eq $targetTls) {
+
+          Write-Host ""
+          Write-Host "SCM Minimum Inbound TLS is already $targetTls."
+          Write-Host "No change required."
+
+          exit 0
+      }
+
+      # ----------------------------------
+      # Update SCM Minimum TLS :-
+      # ----------------------------------
+
+      Write-Host ""
+      Write-Host "Updating SCM Minimum Inbound TLS:"
+      Write-Host "$currentScmTls --> $targetTls"
+
+      az webapp config set --resource-group $resourceGroup --name $appService --generic-configurations "{'scmMinTlsVersion':'$targetTls'}"
+
+      if ($LASTEXITCODE -ne 0) {
+          throw "Failed to update SCM Minimum Inbound TLS Version."
+      }
+
+      # ----------------------------------
+      # Verify Configuration
+      # ----------------------------------
+
+      Write-Host ""
+      Write-Host "Verifying SCM TLS configuration..."
+
+      $updatedScmTls = az webapp config show --resource-group $resourceGroup --name $appService --query scmMinTlsVersion --output tsv
+
+      if ($LASTEXITCODE -ne 0) {
+          throw "Unable to verify SCM TLS configuration."
+      }
+
+      Write-Host "SCM Minimum Inbound TLS : $updatedScmTls"
+
+      if ($updatedScmTls -ne $targetTls) {
+          throw "SCM TLS verification failed. Expected $targetTls but found $updatedScmTls."
+      }
+
+      Write-Host ""
+      Write-Host "=========================================="
+      Write-Host "SCM TLS update completed successfully."
+      Write-Host "SCM Minimum TLS : $updatedScmTls"
+      Write-Host "=========================================="
