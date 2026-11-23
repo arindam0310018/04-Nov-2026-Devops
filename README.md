@@ -11,6 +11,9 @@ This Repository contains __All About Devops in Year 2026 & 2027__. List follows 
 | 2. | __Intune End User Devices Grafana Dashboard__ | https://github.com/arindam0310018/04-Nov-2026-Devops/tree/main/02-Intune-End-User-Devices-Grafana-Dashboard |
 | 3. | __Update Liinux App Service PHP Runtime__ | https://github.com/arindam0310018/04-Nov-2026-Devops/tree/main/03-AppService-Linux-Update-PHP-Runtime |
 | 4. | __Update Linux App Service SCM Inbound TLS__ | https://github.com/arindam0310018/04-Nov-2026-Devops/tree/main/04-AppService-Linux-Update-SCM-Inbound-TLS |
+| 5. | __Deploy DDoS Plan__ | https://github.com/arindam0310018/04-Nov-2026-Devops/tree/main/05-Deploy-DDoS-Plan |
+| 6. | __XX__ |  |
+
 
 
 
