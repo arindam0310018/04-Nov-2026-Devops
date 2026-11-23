@@ -4,9 +4,9 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  azureServiceConnection: 'BILS-AZ-ENTRA-APP-REG-Prod-DevOps-Svc-Conn'
-  resourceGroupName: 'bil-s_3rd_party_public_services'
-  appServiceName: 'bilch-redirect'
+  azureServiceConnection: '[NAME OF THE AZURE DEVOPS SERVICE CONNECTION]'
+  resourceGroupName: '[NAME OF THE RESOURCE GROUP]'
+  appServiceName: '[NAME OF THE APP SERVICE]'
   targetScmTlsVersion: '1.2'
 
 steps:
