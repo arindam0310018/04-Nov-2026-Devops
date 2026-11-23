@@ -3,8 +3,8 @@ terraform {
   required_version = ">= 1.5.0"
   
   backend "azurerm" {
-    resource_group_name  = "BIL-S_Production_Storage"
-    storage_account_name = "bilsprodtfstate"
+    resource_group_name  = "AM_Production_Storage"
+    storage_account_name = "amprodtfstate"
     container_name       = "tfstate"
     key                  = "DDoS-Plan/ddos.tfstate"
 
