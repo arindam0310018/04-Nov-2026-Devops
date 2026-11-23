@@ -3,27 +3,25 @@
 | :---------: |
 
 ```
- Error: Failed to get existing workspaces: listing blobs: executing request: unexpected status 403 (403 Key based authentication is not permitted on this storage account.) with KeyBasedAuthenticationNotPermitted: Key based authentication is not permitted on this storage account.
-│ RequestId:320e61d8-e01e-0028-5ef7-2b5f91000000
-│ Time:2026-08-14T14:13:49.4334651Z
-│ 
+Error: Failed to get existing workspaces: listing blobs: executing request: unexpected status 403 (403 Key based authentication is not permitted on this storage account.) with KeyBasedAuthenticationNotPermitted: Key based authentication is not permitted on this storage account.
+RequestId:320e61d8-e01e-0028-5ef7-2b5f91000000
+Time:2026-08-14T14:13:49.4334651Z
 ```
 
 | RESOLUTION #1:- |
 | :---------: |
 
-
-Below follows the 3 part Resolution.
+Below follows the __3-PART Resolution__.
 
 
 | Important to Note:- |
-| :---------: |
+| :--------- |
 | Storage Account Public Access is __DISABLED__. |
 | Storage Account is __PRIVATE ENDPOINT__. |
-| Allow storage account Key Access is __DISABLED__ (Storage Account > Settings > Configuration). |
+| Allow storage account Key Access is __DISABLED (Storage Account > Settings > Configuration)__. |
 
 
-| PART 1:Storage Account Public Access is __DISABLED__ 
+| PART 1: Storage Account Public Access is __DISABLED__ |
 | :---------: |
 
 Validate if Storage Account is reachable from AVD where you are executing terraform Commands 
@@ -58,7 +56,7 @@ TcpTestSucceeded : True
 PS C:\Users\AM> 
 ```
 
-| PART 2: Storage Account is __PRIVATE ENDPOINT__|
+| PART 2: Storage Account is __PRIVATE ENDPOINT__ |
 | :---------: |
 
 Grant User identity "AA@BB.CC" RBAC __"Storage Blob Data Contributor"__ on Storage Account where we are planning to Store State files.
@@ -68,15 +66,15 @@ This is because user "AA@BB.CC" is executing terraform Commands - __terraform in
 | PART 3: Allow storage account Key Access is __DISABLED__ (Storage Account > Settings > Configuration) |
 | :---------: |
 
-Edit "main.tf" file.
+Edit __"main.tf"__ file.
 
-__Add below -__ 
+__Add below:-__ 
 
 ```
-use_azuread_auth     = true
+use_azuread_auth = true
 ```
 
-__ This ensures that Terraform is using Entra ID Identity and NOT Storage Account Access Key.__
+__This ensures that Terraform is using Entra ID Identity and NOT Storage Account Access Key.__
 
 
  
