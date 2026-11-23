@@ -14,6 +14,9 @@ This Repository contains __All About Devops in Year 2026 & 2027__. List follows 
 | 5. | __Deploy DDoS Plan__ | https://github.com/arindam0310018/04-Nov-2026-Devops/tree/main/05-Deploy-DDoS-Plan |
 | 6. | __Tshoot #1 - DDoS Plan Deployment__ | https://github.com/arindam0310018/04-Nov-2026-Devops/tree/main/06-Tshoot-01-DDoS-Plan-Deployment |
 | 7. | __Tshoot #2 - DDoS Plan Deployment__ | https://github.com/arindam0310018/04-Nov-2026-Devops/tree/main/07-Tshoot-02-DDoS-Plan-Deployment |
+| 8. | __Attach DDoS Plan 2 Existing VNet in Different Subscription__ | https://github.com/arindam0310018/04-Nov-2026-Devops/tree/main/08-Attach-DDoS-Plan-2-Existing-VNet |
+
+
 
 
 
