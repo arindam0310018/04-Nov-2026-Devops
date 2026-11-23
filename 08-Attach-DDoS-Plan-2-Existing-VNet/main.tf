@@ -3,8 +3,8 @@ terraform {
   required_version = ">= 1.5.0"
   
   backend "azurerm" {
-    resource_group_name     = "BIL-S_T_TEST_Storage"
-    storage_account_name    = "bilstesttfstate"
+    resource_group_name     = "AM_T_TEST_Storage"
+    storage_account_name    = "amtesttfstate"
     container_name          = "tfstate"
     key                     = "Attach-DDoS-Plan/attach-ddos-2-test-vnets.tfstate"
     use_azuread_auth        = true
