@@ -1,4 +1,4 @@
-resource_group_name = "BIL-S_Networks_All"
+resource_group_name = "AM_Networks_All"
 
-ddos_plan_name = "BCH-DDOS-Plan"
+ddos_plan_name = "AM-DDOS-Plan"
 
