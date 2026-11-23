@@ -4,10 +4,10 @@ pool:
   vmImage: 'windows-latest'
 
 variables:
-  azureServiceConnection: 'BILS-AZ-ENTRA-APP-REG-Prod-DevOps-Svc-Conn'
-  resourceGroupName: 'bil-s_3rd_party_public_services'
-  #appServiceName: 'bilch-ebanking-maintenance'
-  appServiceName: 'bilch-redirect'
+  azureServiceConnection: '[NAME OF THE AZURE DEVOPS SERVICE CONNECTION]'
+  resourceGroupName: '[NAME OF THE RESOURCE GROUP]'
+  #appServiceName: '[NAME OF THE APP SERVICE-1]'
+  appServiceName: '[NAME OF THE APP SERVICE-2]'
   targetPHPVersion: '8.5'
 
 steps:
