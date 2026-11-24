@@ -1,9 +1,9 @@
-| AZURE RESOURCE GRAPH EXPLORER:- |
+| EXECUTE THE BELOW KQL IN AZURE RESOURCE GRAPH EXPLORER:- |
 | :---------: |
 
 | USE CASE #4:- |
 | :---------: |
-| Outputs the Defender Secure Score of every subscription, gives each subscription the appropriate weight, and calculates one overall Secure Score for the Azure environment. |
+| The Query Outputs the Defender Secure Score of every subscription, gives each subscription the appropriate weight, and calculates one overall Secure Score for the Azure environment. |
 
 
 ```
