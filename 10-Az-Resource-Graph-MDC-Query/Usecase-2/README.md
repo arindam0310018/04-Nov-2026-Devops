@@ -1,10 +1,9 @@
-| AZURE RESOURCE GRAPH EXPLORER:- |
+| EXECUTE THE BELOW KQL IN AZURE RESOURCE GRAPH EXPLORER:- |
 | :---------: |
 
 | USE CASE #2:- |
 | :---------: |
 | Output ALL the Subscription Secure Score % to which the Identity has access to it. |
-
 
 ```
 SecurityResources
