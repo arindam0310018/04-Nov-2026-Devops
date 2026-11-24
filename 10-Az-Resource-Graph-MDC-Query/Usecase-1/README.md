@@ -1,9 +1,9 @@
-| AZURE RESOURCE GRAPH EXPLORER:- |
+| EXECUTE THE BELOW KQL IN AZURE RESOURCE GRAPH EXPLORER:- |
 | :---------: |
 
 | USE CASE #1:- |
 | :---------: |
-| Output only Specific Subscription Secure Score % |
+| The Query Outputs only Specific Subscription Secure Score %. |
 
 __Note:-__
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxx = __Replace it with your own Subscription ID(s)__
