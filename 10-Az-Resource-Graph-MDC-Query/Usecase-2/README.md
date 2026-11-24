@@ -3,7 +3,7 @@
 
 | USE CASE #2:- |
 | :---------: |
-| Output ALL the Subscription Secure Score % to which the Identity has access to it. |
+| The Query Outputs __ALL__ the Subscription Secure Score % to which the Identity has access to it. |
 
 ```
 SecurityResources
