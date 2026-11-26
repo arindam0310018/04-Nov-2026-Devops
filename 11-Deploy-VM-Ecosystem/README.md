@@ -41,8 +41,8 @@ azurerm_network_security_group.nsg
 azurerm_private_endpoint.kv-pe
 azurerm_recovery_services_vault.rsv
 azurerm_resource_group.rg
-azurerm_role_assignment.kv-rbac["182eb7f7-cfdf-4c79-b4e6-87658b7c1645"]
-azurerm_role_assignment.kv-rbac["99b8e8ee-12d9-434c-ac84-20e4fb36d147"]
+azurerm_role_assignment.kv-rbac["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]
+azurerm_role_assignment.kv-rbac["xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"]
 azurerm_virtual_machine_data_disk_attachment.vm-data-disk-attach
 azurerm_windows_virtual_machine.vm
 random_password.random-passwd
